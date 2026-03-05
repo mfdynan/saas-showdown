@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { getVendorById } from "@/lib/vendors";
@@ -17,9 +17,9 @@ const difficultyColors: Record<string, string> = {
 export default function GamePage({
   params,
 }: {
-  params: Promise<{ vendor: string }>;
+  params: { vendor: string };
 }) {
-  const { vendor: vendorId } = use(params);
+  const { vendor: vendorId } = params;
   const router = useRouter();
   const vendor = getVendorById(vendorId);
 

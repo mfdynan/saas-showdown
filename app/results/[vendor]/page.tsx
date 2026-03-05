@@ -1,6 +1,5 @@
 "use client";
 
-import { use } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { motion } from "framer-motion";
@@ -124,9 +123,9 @@ function ResultsContent({ vendorId }: { vendorId: string }) {
 export default function ResultsPage({
   params,
 }: {
-  params: Promise<{ vendor: string }>;
+  params: { vendor: string };
 }) {
-  const { vendor: vendorId } = use(params);
+  const { vendor: vendorId } = params;
   return (
     <Suspense
       fallback={
